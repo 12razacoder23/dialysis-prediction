@@ -4,65 +4,53 @@
     <title>Dialysis Prediction</title>
     <style>
         body {
-            margin: 0;
-            padding: 0;
+            background: linear-gradient(to right, #74ebd5, #acb6e5);
             font-family: Arial, sans-serif;
-            background: linear-gradient(to right, #74ebd5, #ACB6E5);
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            height: 100vh;
+            text-align: center;
+            padding: 50px;
         }
-
-        h2 {
-            background-color: rgba(255, 255, 255, 0.7);
-            padding: 20px;
-            border-radius: 10px;
-        }
-
         form {
-            background-color: rgba(255, 255, 255, 0.8);
+            background-color: #ffffff;
             padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            display: inline-block;
+            box-shadow: 0px 4px 20px rgba(0,0,0,0.2);
         }
-
-        input[type="number"],
-        input[type="submit"] {
+        input, select {
             padding: 10px;
-            margin-top: 10px;
-            width: 100%;
-            border: none;
-            border-radius: 6px;
-            font-size: 16px;
+            margin: 10px;
+            width: 80%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
-
         input[type="submit"] {
             background-color: #4CAF50;
             color: white;
+            font-weight: bold;
             cursor: pointer;
         }
-
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-
         h3 {
-            margin-top: 20px;
-            background-color: #fff;
-            padding: 10px 20px;
-            border-radius: 8px;
+            margin-top: 30px;
+            color: #333;
         }
     </style>
 </head>
 <body>
     <h2>Dialysis Prediction Form</h2>
     <form action="/predict" method="post">
-        Age: <input type="number" name="age" step="any"><br><br>
-        Blood Pressure: <input type="number" name="bp" step="any"><br><br>
-        Creatinine Level: <input type="number" name="creatinine" step="any"><br><br>
+        Age: <input type="number" name="age" required><br>
+        Blood Pressure (systolic/diastolic): <input type="text" name="bp" placeholder="e.g. 120/80" required><br>
+        Creatinine Level: <input type="number" name="creatinine" step="any" required><br>
+        Family History: 
+        <select name="family_history">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br>
+        Diabetes:
+        <select name="diabetes">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br>
         <input type="submit" value="Predict">
     </form>
 
